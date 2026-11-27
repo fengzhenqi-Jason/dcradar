@@ -1,0 +1,189 @@
+{
+ "release_id": "dcradar-2026-11-27-104047",
+ "public_origin": "https://decorative-herself-font-setup.trycloudflare.com/dcradar",
+ "generated_at": "2026-11-27T10:40:47+08:00",
+ "as_of": "2026-11-27",
+ "counts": {
+  "sites": 6153,
+  "capacities": 82,
+  "events": 21,
+  "milestones": 10,
+  "news_articles": 150,
+  "news_events": 150
+ },
+ "coverage": {
+  "with_coordinates": 5522,
+  "with_it_load_mw": 78,
+  "coordinate_pct": 89.7,
+  "capacity_pct": 1.27
+ },
+ "status_distribution": {
+  "unknown": 6073,
+  "operating": 53,
+  "under_construction": 8,
+  "planned": 19
+ },
+ "tier_distribution": {
+  "L2": 6148,
+  "L1": 5
+ },
+ "source_distribution": {
+  "SRC-L2-PEERINGDB": 5910,
+  "SRC-L2-ATLAS": 200,
+  "S001": 2,
+  "S005": 1,
+  "S010": 1,
+  "S009": 1,
+  "S013": 1,
+  "S014": 1,
+  "S011": 1,
+  "S015": 1,
+  "S016": 1,
+  "S007": 1,
+  "S017": 1,
+  "S023": 1,
+  "S019": 1,
+  "S020": 1,
+  "S018": 1,
+  "S021": 1,
+  "SRC-L2-DCDTAG-DAYONE": 3,
+  "SRC-L2-DCDTAG-CHINDATA": 2,
+  "SRC-L2-DCDTAG-EMPYRION_DIGITAL": 4,
+  "SRC-L2-DCDTAG-PRINCETON_DIGITAL_GROUP": 4,
+  "SRC-L2-DCDTAG-STT_GDC": 8,
+  "SRC-L2-DCDTAG-KEPPEL_DATA_CENTRES": 2,
+  "SRC-L2-DCDTAG-PURE_DATA_CENTRES": 2,
+  "SRC-L2-DCDTAG-ALIBABA_CLOUD": 1
+ },
+ "top_countries": [
+  [
+   "US",
+   1382
+  ],
+  [
+   "BR",
+   370
+  ],
+  [
+   "DE",
+   328
+  ],
+  [
+   "GB",
+   248
+  ],
+  [
+   "IN",
+   246
+  ],
+  [
+   "FR",
+   226
+  ],
+  [
+   "ID",
+   222
+  ],
+  [
+   "CA",
+   166
+  ],
+  [
+   "NL",
+   162
+  ],
+  [
+   "AU",
+   158
+  ],
+  [
+   "JP",
+   114
+  ],
+  [
+   "IT",
+   105
+  ],
+  [
+   "RU",
+   103
+  ],
+  [
+   "NZ",
+   93
+  ],
+  [
+   "PL",
+   81
+  ],
+  [
+   "CH",
+   78
+  ],
+  [
+   "ES",
+   72
+  ],
+  [
+   "AR",
+   70
+  ],
+  [
+   "United States",
+   60
+  ],
+  [
+   "AT",
+   58
+  ]
+ ],
+ "registry_sources": {
+  "total": 69,
+  "enabled": 48
+ },
+ "validation": {
+  "fail": 0,
+  "warn": 0,
+  "issue_counts": {}
+ },
+ "watchlist_coverage": {
+  "customers": null,
+  "covered": null,
+  "with_capacity": null,
+  "not_covered": []
+ },
+ "damac_crosscheck": {
+  "our_sites": null,
+  "open_source_damac_matches": null,
+  "conflicts": []
+ },
+ "field_dictionary": {
+  "id": "site_id 稳定标识",
+  "name": "站点名",
+  "op": "运营方品牌",
+  "opg": "运营集团",
+  "city": "城市",
+  "region": "省/州",
+  "country": "国家",
+  "lat": "纬度",
+  "lon": "经度",
+  "geo": "位置精度: parcel_exact/building/point/city_approximate/district_approximate/unknown",
+  "status": "operating/under_construction/planned/unknown",
+  "mw": "当前投运IT容量(MW)，空=未披露",
+  "racks": "设计机架数",
+  "kva": "设计电力(KVA)，不可当MW",
+  "tier": "来源层级L1/L2/L3/L4",
+  "src": "主来源ID",
+  "vstatus": "verified/single_source/conflict/stale/lead/needs_review",
+  "conf": "high/medium/low",
+  "last": "最近核验日期",
+  "asof": "状态截至日期",
+  "capn": "该站容量观测条数",
+  "caps": "容量观测(仅含scope/口径/时点/来源, 不提供合计)"
+ },
+ "notes": [
+  "容量为观测而非站点属性：caps 内每条带 scope/口径/时点/来源，禁止跨 scope 求和。",
+  "mw 仅表示当前投运 IT 容量；racks/kva 为原始设计口径，不参与 MW 换算。",
+  "lat/lon 为城市级或区域级近似时，geo 字段会标注精度，地图不得显示为精确机房位置。"
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "schema_version": "0.2.0",
+ "release_id": "dcradar-2026-11-27-104047",
+ "generated_at": "2026-11-27T10:40:47+08:00",
+ "as_of": "2026-11-27",
+ "min_app_version": "0.2.0",
+ "counts": {
+  "sites": 6153,
+  "capacities": 82,
+  "events": 21,
+  "milestones": 10,
+  "news_articles": 150,
+  "news_events": 150
+ },
+ "files": {
+  "sites.json": {
+   "url": "data/release/sites.json",
+   "bytes": 2386761,
+   "sha256": "f0d9e7f19670dbffdc974f7230415c7c3c5d728fe170a677664a694eb8e4ffc3",
+   "records": 6153
+  },
+  "capacities.json": {
+   "url": "data/release/capacities.json",
+   "bytes": 20678,
+   "sha256": "2fb54a51b61699f8493806247d8939208564b24954de1daf01729de17fd85445",
+   "records": 76
+  },
+  "events.json": {
+   "url": "data/release/events.json",
+   "bytes": 8199,
+   "sha256": "bce14cf0a426549bb5c864d08fd0dc7f2d5156274cb77dc056e7130457204dc4",
+   "records": 21
+  },
+  "milestones.json": {
+   "url": "data/release/milestones.json",
+   "bytes": 2060,
+   "sha256": "3d89a6e1cc193a32e68d1680592470a55e7b56f570d0b489019b7750fffee970",
+   "records": 10
+  },
+  "meta.json": {
+   "url": "data/release/meta.json",
+   "bytes": 3472,
+   "sha256": "004dc9c159d6e6b6a9e5c8afd06bcb1d2849909d512e74efa1241173b50c969a",
+   "records": null
+  },
+  "news.json": {
+   "url": "data/release/news.json",
+   "bytes": 270210,
+   "sha256": "522d34afc0ee2a9f5b337ba0643bde055de50729b850e65e11935d92de23efc3",
+   "records": 2
+  },
+  "map_paths.json": {
+   "url": "data/release/map_paths.json",
+   "bytes": 126721,
+   "sha256": "91feac2b6e7dfdc6453d8f26b2d0118a61c649315ff0a9a53a85f9c307b7e4b2",
+   "records": 177
+  }
+ },
+ "note": "本地发布包；云端发布时同一协议走HTTPS + manifest校验。"
+}
