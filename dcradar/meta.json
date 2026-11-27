@@ -1,15 +1,15 @@
 {
- "release_id": "dcradar-2026-11-27-124048",
+ "release_id": "dcradar-2026-11-27-131053",
  "public_origin": "https://fengzhenqi-jason.github.io/dcradar/dcradar",
- "generated_at": "2026-11-27T12:40:48+08:00",
+ "generated_at": "2026-11-27T13:10:53+08:00",
  "as_of": "2026-11-27",
  "counts": {
   "sites": 6153,
   "capacities": 82,
   "events": 21,
   "milestones": 10,
-  "news_articles": 150,
-  "news_events": 150
+  "news_articles": 151,
+  "news_events": 151
  },
  "coverage": {
   "with_coordinates": 5522,
