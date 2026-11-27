@@ -1,7 +1,7 @@
 {
  "schema_version": "0.2.0",
- "release_id": "dcradar-2026-11-28-021049",
- "generated_at": "2026-11-28T02:10:49+08:00",
+ "release_id": "dcradar-2026-11-28-024107",
+ "generated_at": "2026-11-28T02:41:07+08:00",
  "as_of": "2026-11-28",
  "min_app_version": "0.2.0",
  "counts": {
@@ -40,13 +40,13 @@
   "meta.json": {
    "url": "data/release/meta.json",
    "bytes": 3459,
-   "sha256": "23024babbe9e1ea968fdcd56b8f5464d8b1b6c247bf3610e0b1a59b44118ad18",
+   "sha256": "78dfe893a52c060a8ee00d3016bc2af0940e4cd3d7922b2481e115e5b98b66df",
    "records": null
   },
   "news.json": {
    "url": "data/release/news.json",
    "bytes": 271661,
-   "sha256": "75038a6d59e6b20825696def47de1563ca9b4b136f0766ab4eaec2b6f28612b5",
+   "sha256": "3c626e332d877b5ea6cfa809c0bed273686371e98119e417deb609ea357d6f39",
    "records": 2
   },
   "map_paths.json": {
