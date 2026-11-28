@@ -45,6 +45,43 @@
 .filerow{display:flex;gap:6px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
 .filerow .filter{white-space:nowrap}
 #mapCount{font-size:10px;color:var(--muted);padding:0 14px 8px}
+
+.cust-page{padding:14px;background:#F3F6F8;min-height:100%}
+.cust-picker{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.cust-picker .chip{white-space:nowrap;border:1px solid #dbe4e9;background:#fff;color:#4a5f6f;border-radius:20px;padding:7px 11px;font-size:11px}
+.cust-picker .chip.on{background:#0B1F33;border-color:#0B1F33;color:#fff}
+.port-head{background:linear-gradient(145deg,#0B1F33,#16455A);color:#fff;border-radius:18px;padding:18px;margin-bottom:10px}
+.port-head .eyebrow-dark{font-size:9px;letter-spacing:1.6px;color:#6fd3b6;font-weight:800}
+.port-head h2{font-size:24px;margin:4px 0 4px}
+.port-head p{font-size:11px;color:#b7ccd8;margin:0}
+.stage-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:14px}
+.stage-card{background:#ffffff12;border:1px solid #ffffff1f;border-radius:13px;padding:9px 8px;border-left:3px solid var(--c)}
+.stage-card b{display:block;font-size:19px;line-height:1.1}
+.stage-card span{font-size:9px;color:#c2d6e0}
+.stage-card em{display:block;font-style:normal;font-size:8.5px;color:#8fb0be;margin-top:4px}
+.tbl{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:6px}
+.tbl .tr{display:grid;grid-template-columns:1.6fr 1fr .8fr .9fr .8fr;gap:6px;padding:9px 11px;font-size:10.5px;border-bottom:1px solid #eef2f4;align-items:center}
+.tbl .tr:last-child{border-bottom:0}
+.tbl .tr.th{background:#f5f8fa;font-size:9px;color:#8b99a4;font-weight:700}
+.tbl .tr>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tbl .tr[data-site]{cursor:pointer}
+.tbl .tr[data-site]:active{background:#f0f6f8}
+.tbl .dot{margin-right:5px}
+.cap-live{color:#0B7B60;font-weight:800}.cap-plan{color:#7652c8;font-weight:700}.cap-none{color:#9AA6B0}
+.ev em{display:block;font-style:normal;font-size:8.5px;color:#9AA6B0;margin-top:2px}
+.gap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:6px}
+.gap-grid>div{background:#fff;border:1px solid var(--line);border-radius:13px;padding:10px;text-align:center}
+.gap-grid b{display:block;font-size:19px;color:#B0630F}
+.gap-grid span{font-size:9px;color:#7d8b96;line-height:1.4;display:block;margin-top:3px}
+.gap-list{font-size:9.5px;color:#7d8b96;line-height:1.6;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+.mini-map{background:#DCEEF2;border:1px solid #d2e2e7;border-radius:16px;overflow:hidden;margin-bottom:8px}
+.mini-map svg{display:block;width:100%;height:190px}
+.mini-map .country{fill:#f8fbfa;stroke:#c2d5d8;stroke-width:.45}
+.tl{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 11px;margin-bottom:6px}
+.tl-row{display:grid;grid-template-columns:64px 1fr;gap:8px;padding:8px 0;border-bottom:1px solid #f0f3f5;font-size:10.5px;line-height:1.5}
+.tl-row:last-child{border-bottom:0}
+.tl-row b{color:#0B7B60;font-size:9.5px}
+.tl-row em{grid-column:2;font-style:normal;font-size:9px;color:#9AA6B0}
 </style></head>
 <body><main class="desktop-shell">
 <section class="phone" id="phone"><div class="phone-screen" id="screen">
@@ -99,14 +136,7 @@
  </div>
 </section>
 <section class="page" data-page="customers">
- <div class="company-card"><div class="eyebrow">WATCHLIST</div><h2>关注客户</h2><p>27家重点客户 · 开放源覆盖度与交叉验证结果</p>
-  <div class="coverage"><div><b id="wlCovered">—</b><span>开放源已命中</span></div><div><b id="wlGap">—</b><span>完全未覆盖</span></div></div>
- </div>
- <div class="content" style="padding-top:12px">
-  <div class="notice"><i>⚠️</i><span id="wlNote"></span></div>
-  <div class="section-head"><h2>客户清单</h2><small>点击展开</small></div>
-  <div id="clientList"></div>
- </div>
+ <div id="customerPage" class="cust-page"></div>
 </section>
 <section class="page" data-page="news">
  <div class="page-title"><h1>动态与事件</h1><p id="newsSub"></p></div>
@@ -132,6 +162,7 @@
 </aside></main>
 <script src="dcradar-sync.js?v=dcradar-2026-11-28-231113"></script>
 <script src="dcradar-release.js?v=dcradar-2026-11-28-231113"></script>
+<script src="dcradar-portfolio.js"></script></script>
 <script>
 const R = window.DCR_RELEASE || {sites:[],meta:{},capacities:{},events:[],milestones:[],news:{articles:[],events:[]}};
 const NEWS = R.news || {articles:[],events:[]};
@@ -142,7 +173,7 @@ const ST = {operating:['已投运','#0c9b72'], under_construction:['在建','#e8
 const esc = s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const STQ = {operating:'投运',under_construction:'在建',planned:'规划',unknown:'待核实'};
 const state = {route:'home', mapStatus:'all', mapTier:'all', mapHas:'all', siteStatus:'all', siteTier:'all', siteHas:'all',
-               search:'', shown:60, sel:null, view:{cx:500,cy:250,z:1}, newsType:'all', newsMode:'all', wl:null};
+               search:'', shown:60, sel:null, view:{cx:500,cy:250,z:1}, newsType:'all', newsMode:'all', wl:null, op:null};
 const idx = new Map(SITES.map(s=>[s.id,s]));
 let LAT=new Float64Array(SITES.length), LON=new Float64Array(SITES.length), STT=new Uint8Array(SITES.length), HAS=new Uint8Array(SITES.length);
 const STK=['operating','under_construction','planned','unknown'];
@@ -295,18 +326,12 @@ function renderSites(reset){
 
 /* ---------- 客户 ---------- */
 function renderCustomers(){
-  const wl=META.watchlist_coverage||{};
-  $('#wlCovered').textContent=(wl.covered??'—')+'/'+(wl.customers??'—');
-  $('#wlGap').textContent=(wl.not_covered||[]).length;
-  $('#wlNote').innerHTML=`27家关注客户中，<b>${wl.covered}</b>家在开放源(PeeringDB+Atlas)中有记录，但只有<b>${wl.with_capacity}</b>家带容量字段；<b>${(wl.not_covered||[]).length}家完全未覆盖</b>。这正是必须做L1一手来源的原因。`;
-  const gap=(wl.not_covered||[]).join('、');
-  $('#clientList').innerHTML=`<div class="dist" style="margin-bottom:10px"><h4>完全未覆盖（需L1补齐）</h4><div class="bar-note">${esc(gap||'无')}</div></div>`+
-    (state.wlRows||[]).map(r=>`<button class="client-row" data-client="${esc(r.customer)}">
-      <div class="cr-top"><b>${esc(r.customer)}</b><span class="pill ${r.coverage_status==='covered_with_capacity'?'ok':(r.coverage_status==='covered_locations_only'?'warn':'bad')}">${r.coverage_status==='covered_with_capacity'?'有容量':(r.coverage_status==='covered_locations_only'?'仅位置':'未覆盖')}</span></div>
-      <div class="cr-meta">开放源命中 ${r.sites_matched} 站 · 有坐标 ${r.with_coordinates} · 有MW ${r.with_it_load_mw} · ${esc(r.countries||'')}</div>
-      ${r.examples?`<div class="cr-meta">${esc(r.examples.slice(0,120))}</div>`:''}</button>`).join('');
+  const el=document.querySelector('#customerPage');
+  if(!el||!window.DCRPortfolio){return;}
+  const ops=window.DCRPortfolio.operators();
+  if(!state.op||ops.indexOf(state.op)<0){state.op=ops[0];}
+  window.DCRPortfolio.render(el,state.op);
 }
-
 /* ---------- 详情弹层 ---------- */
 function openSiteSheet(id){
   const s=byId(id); if(!s)return;
@@ -395,6 +420,8 @@ document.addEventListener('click',e=>{
   if(b.dataset.siteId){openSiteSheet(b.dataset.siteId);return}
   if(b.dataset.newsId){openNewsSheet(b.dataset.newsId);return}
   if(b.dataset.close){$('#'+b.dataset.close).hidden=true;return}
+  if(b.dataset.op){state.op=b.dataset.op;renderCustomers();return}
+  if(b.dataset.site){openSiteSheet(b.dataset.site);return}
   if(b.dataset.mapFilter!==undefined){state.mapStatus=b.dataset.mapFilter;filters('#mapFilters',[[['all','全部状态'],['operating','投运'],['under_construction','在建'],['planned','规划'],['unknown','待核实']]],'map');renderMapNodes();return}
   if(b.dataset.map2Filter!==undefined){state.mapTier=b.dataset.map2Filter;filters('#mapFilters2',[[['all','全部分层'],['L1','L1一手'],['L2','L2聚合库'],['L3','L3线索'],['L4','L4中文']]],'map2');renderMapNodes();return}
   if(b.dataset.siteFilter!==undefined){state.siteStatus=b.dataset.siteFilter;state.shown=60;siteFilterRow();renderSites(true);return}
