@@ -1,7 +1,7 @@
 {
- "release_id": "dcradar-2026-11-28-231113",
+ "release_id": "dcradar-2026-11-28-234110",
  "public_origin": "https://fengzhenqi-jason.github.io/dcradar/dcradar",
- "generated_at": "2026-11-28T23:11:13+08:00",
+ "generated_at": "2026-11-28T23:41:10+08:00",
  "as_of": "2026-11-28",
  "counts": {
   "sites": 6153,
@@ -136,6 +136,35 @@
    "AT",
    58
   ]
+ ],
+ "watchlist_customers": [
+  "SoftBank Group / SoftBank Corp.",
+  "DAMAC Digital",
+  "DayOne Data Centers",
+  "K2 Strategic / K2 Data Centres",
+  "China Mobile International",
+  "Alibaba Cloud",
+  "Tencent Cloud",
+  "ByteDance / Volcano Engine",
+  "Bridge Data Centres",
+  "Keppel Data Centres",
+  "ST Telemedia Global Data Centres",
+  "BDx Data Centers",
+  "Google / Google Cloud",
+  "Microsoft / Azure",
+  "Amazon Web Services",
+  "CyrusOne",
+  "Pure Data Centres Group",
+  "Equinix",
+  "Princeton Digital Group",
+  "GDS Holdings",
+  "Chindata Group",
+  "AirTrunk",
+  "NTT Global Data Centers",
+  "KDDI / Telehouse",
+  "Digital Edge",
+  "Empyrion Digital",
+  "OneAsia Network"
  ],
  "registry_sources": {
   "total": 69,
