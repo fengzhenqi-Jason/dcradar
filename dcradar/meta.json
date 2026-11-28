@@ -1,7 +1,7 @@
 {
- "release_id": "dcradar-2026-11-28-132402",
+ "release_id": "dcradar-2026-11-28-134053",
  "public_origin": "https://fengzhenqi-jason.github.io/dcradar/dcradar",
- "generated_at": "2026-11-28T13:24:02+08:00",
+ "generated_at": "2026-11-28T13:40:53+08:00",
  "as_of": "2026-11-28",
  "counts": {
   "sites": 6153,
@@ -143,14 +143,23 @@
  },
  "validation": {
   "fail": 0,
-  "warn": 0,
-  "issue_counts": {}
+  "warn": 24,
+  "issue_counts": {
+   "COORD_UNKNOWN": 631,
+   "CAP_NON_IT": 1,
+   "CAP_SCOPE_OVERLAP": 3,
+   "CAP_VERSION_MULTI": 1,
+   "SITE_CAP_NO_OBS": 11,
+   "DUP_SITE": 8
+  }
  },
  "watchlist_coverage": {
-  "customers": null,
-  "covered": null,
-  "with_capacity": null,
-  "not_covered": []
+  "customers": 27,
+  "covered": 26,
+  "with_capacity": 11,
+  "not_covered": [
+   "ByteDance / Volcano Engine"
+  ]
  },
  "damac_crosscheck": {
   "our_sites": null,
