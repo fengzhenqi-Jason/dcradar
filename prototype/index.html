@@ -162,7 +162,7 @@
 </aside></main>
 <script src="dcradar-sync.js?v=dcradar-2026-11-28-231113"></script>
 <script src="dcradar-release.js?v=dcradar-2026-11-28-231113"></script>
-<script src="dcradar-portfolio.js"></script></script>
+<script src="dcradar-portfolio.js?v=dcradar-2026-11-28-231113"></script></script>
 <script>
 const R = window.DCR_RELEASE || {sites:[],meta:{},capacities:{},events:[],milestones:[],news:{articles:[],events:[]}};
 const NEWS = R.news || {articles:[],events:[]};
@@ -414,6 +414,8 @@ function updateViewBox(){
   if(raf)cancelAnimationFrame(raf); raf=requestAnimationFrame(()=>{renderMapNodes();});
 }
 document.addEventListener('click',e=>{
+  const rowHit=e.target.closest('[data-site]');
+  if(rowHit&&rowHit.dataset.site){e.stopPropagation();openSiteSheet(rowHit.dataset.site);return}
   const b=e.target.closest('button,a'); if(!b)return;
   if(b.dataset.route){navigate(b.dataset.route);return}
   if(b.dataset.openRoute){navigate(b.dataset.openRoute);return}
@@ -476,7 +478,6 @@ async function doSync(){
   try{ if(SYNC) await SYNC.hydrate(); }catch(e){}
   renderHome();
   try{ state.wlRows = (window.DCR_WATCHLIST||[]); }catch(e){ state.wlRows=[]; }
-  $('#wlCovered').textContent=((META.watchlist_coverage||{}).covered??'—');
   await renderSync();
 })();
 </script>
